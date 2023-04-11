@@ -7,9 +7,9 @@ Descrizione:
 
 -   Ripercorriamo gli steps fatti a lezione ed iniziamo un nuovo progetto usando laravel breeze ed il pacchetto Laravel 9 Preset con autenticazione. ✔
 
--   Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
+Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
 
--   Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office
+-   Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office ✔
 
 -   Creazione del modello Project con relativa migrazione, seeder, controller e rotte
 
