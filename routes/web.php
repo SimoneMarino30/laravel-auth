@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +21,12 @@ Route::get('/', [GuestHomeController::class, 'index']);
 
 Route::get('/dashboard', [AdminHomeController::class, 'index'])->middleware('auth')->name('dashboard');
 
-// * AGGIUNGO PREFISSO E NAME UNA VOLTA SOLA VISTO CHE UGUALE PER TUTTE LE ROTTE
-// Route::middleware('auth')
-// ->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')
+->prefix('/Admin')
+->name('admin.')
+->group(function () {
+    Route::Resource('projects', ProjectController::class);
+});
 
 Route::middleware('auth')
 ->prefix('profile') // * TUTTI GLI URL HANNO PREFISSO = PROFILE
@@ -37,5 +37,12 @@ Route::middleware('auth')
     Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
 });
 
+// * AGGIUNGO PREFISSO E NAME UNA VOLTA SOLA VISTO CHE UGUALE PER TUTTE LE ROTTE
+// Route::middleware('auth')
+// ->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
