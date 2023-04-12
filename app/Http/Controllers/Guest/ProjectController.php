@@ -6,10 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
-class Homecontroller extends Controller
+
+
+class ProjectController extends Controller
 {
-    public function index(Project $project) {
+    public function index() {
         $projects = Project::all();
         return view('guest.projects.index', compact('projects'));
+    }
+
+    public function show(Project $project)
+    {
+       return view('guest.projects.show', compact('project'));
     }
 }

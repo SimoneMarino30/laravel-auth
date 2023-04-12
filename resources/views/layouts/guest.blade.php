@@ -11,16 +11,16 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        {{-- Bootstrap icons cdn --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-dark">
-    <div>
         @include('layouts.partials._navbar')
-        
-        <main class="">
-            @yield('content')
+        <main class="container d-flex flex-wrap my-5">
+           @yield('guest-view')
         </main>
-    </div>
 </body>
 </html>
