@@ -15,6 +15,6 @@
     </div>
   </div>
   <a href="{{ route('projects.index') }}" class="btn btn-outline-primary">
-    Back to list
+    Back to projects
   </a>
 @endsection

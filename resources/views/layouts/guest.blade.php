@@ -22,5 +22,5 @@
         <main class="container d-flex flex-wrap my-5">
            @yield('guest-view')
         </main>
-</body>
+    </body>
 </html>
