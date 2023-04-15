@@ -18,6 +18,7 @@ class ProjectSeeder extends Seeder
     {
         for ($i = 0; $i < 50; $i++) {
             $project = new Project;
+            
             $project->title = $faker->catchPhrase();
             $project->link = $faker->imageUrl(360, 360, 'animals', true, 'dogs', true);
             $project->date = $faker->date();

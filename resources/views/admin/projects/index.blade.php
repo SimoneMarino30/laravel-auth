@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Projects')
+@section('title', 'Projects.index')
 
 @section('content')
+<div class="row my-4">
+      <form class="col-8 d-flex justify-content-start" role="search">
+        <input class="form-control me-2" name="term" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-0" type="submit">Search</button>
+      </form>
+      <div class="col-4 d-flex justify-content-end">
+        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-success">Create New Project</a>
+      </div>
+  </div>
+
   <table class="table my-5">
   <thead>
     <tr>

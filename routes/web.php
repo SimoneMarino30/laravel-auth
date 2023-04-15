@@ -25,6 +25,7 @@ Route::resource('projects', GuestProjectController::class);
 
 Route::get('/home', [AdminHomeController::class, 'index'])->middleware('auth')->name('home');
 
+
 Route::middleware('auth')
 ->prefix('/Admin')
 ->name('admin.')
