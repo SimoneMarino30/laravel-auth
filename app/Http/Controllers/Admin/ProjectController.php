@@ -37,7 +37,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $project = new Project;
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
@@ -96,8 +97,15 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {   
         $data = $this->validation($request->all());
+
+        // if(Arr::exists($data, 'link')) {
+        //     $path = Storage::put('uploads/projects', $data['link']);
+        //     $data['link'] = $path;
+        // }
+        
         $project->update($data);
-        return redirect()->route('admin.projects.show', $project);
+        return to_route('admin.projects.show', $project);
+        // ->with('message_content', "Project $project->id modificato con successo!");
     }
 
     /**

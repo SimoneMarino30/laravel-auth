@@ -11,7 +11,11 @@ Bootstrap Icons
 
 <h1 class="my-3 text-success">Edit details of project n° {{ $project->id }}:</h1>
 
-<form action="{{ route('admin.projects.update', $project) }}" method="POST" class="row gy-3">
+<form 
+action="{{ route('admin.projects.update', $project) }}" 
+enctype="multipart/form-data" 
+method="POST" 
+class="row gy-3">
   @csrf
   @method('PUT')
 
@@ -24,20 +28,16 @@ Bootstrap Icons
     {{ $message }}
   </div>
   @enderror
-</div>
 
-<div class="col-6">
   <label for="date" class="form-label">Date</label>
-  <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" 
+  <input type="text" class="form-control @error('date') is-invalid @enderror" id="date" name="date" 
   value="{{ old('date') ?? $project->date}}">
   @error('date')
   <div class="invalid-feedback">
     {{ $message }}
   </div>
   @enderror
-</div>
 
-<div class="col-6">
   <label for="description" class="form-label">Description</label>
   <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" 
   value="{{ old('description') ?? $project->description }}">
@@ -46,17 +46,19 @@ Bootstrap Icons
     {{ $message }}
   </div>
   @enderror
-</div>
 
-<div class="col-12">
   <label for="link" class="form-label">Link</label>
-  <input type="text" class="form-control @error('link') is-invalid @enderror" id="link" name="link"  
+  <input type="file" class="form-control @error('link') is-invalid @enderror" id="link" name="link"  
   value="{{ old('link') ?? $project->link }}">
   @error('link')
   <div class="invalid-feedback">
     {{ $message }}
   </div>
   @enderror
+</div>
+
+<div class="col-6">
+  <img src="{{ $project->link ? asset('storage/' . $project->link) : 'https://www.frosinonecalcio.com/wp-content/uploads/bfi_thumb/default-placeholder-38gbdutk2nbrubtodg93tqlizprlhjpd1i4m8gzrsct8ss250.png' }}" alt="" class="img-fluid">
 </div>
 
 <div class="col-12 d-flex">

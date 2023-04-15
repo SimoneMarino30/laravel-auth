@@ -26,9 +26,8 @@
     <div>
         @include('layouts.partials._navbar')
 
-        <h1 class="my-5">@yield('title')</h1>
-
         <main class="container">
+            <h1 class="my-5">@yield('title')</h1>
             @yield('content')
         </main>
     </div>
