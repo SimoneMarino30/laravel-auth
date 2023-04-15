@@ -86,7 +86,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {   
-        $data = $request->all();
+        $data = $this->validation($request->all());
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);
     }
@@ -110,7 +110,7 @@ class ProjectController extends Controller
             [
             'title' => 'required|string|max:100',
             'link' => 'required|string',
-            'date' => 'required|date',
+            'date' => 'required|string',
             'description' => 'nullable|string', 
         ],
         [

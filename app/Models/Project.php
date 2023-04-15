@@ -11,4 +11,8 @@ class Project extends Model
 
     protected $fillable = ["title", "link", "date", "description"];
 
+    protected function getDateAttribute($value) {
+        return date('d/m/Y', strtotime($value));
+    }
+
 }

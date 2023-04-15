@@ -22,9 +22,10 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
 
-    // BOOTSTRAP PAGINATOR
+    
     public function boot()
     {
+        // BOOTSTRAP PAGINATOR
         Paginator::useBootstrap();
      
     }

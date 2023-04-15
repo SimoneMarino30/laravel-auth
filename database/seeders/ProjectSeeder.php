@@ -20,8 +20,8 @@ class ProjectSeeder extends Seeder
             $project = new Project;
             
             $project->title = $faker->catchPhrase();
-            $project->link = $faker->imageUrl(360, 360, 'animals', true, 'dogs', true);
-            $project->date = $faker->date();
+            $project->link = 'https://picsum.photos/300/500';
+            $project->date = $faker->date('d/m/Y');
             $project->description = $faker->paragraph(2);
             $project->save();
 
