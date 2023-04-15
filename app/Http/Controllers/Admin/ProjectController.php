@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -45,7 +46,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all());
 
         $project = new Project;
 
@@ -98,6 +99,36 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index');
+    }
+
+    private function validation($data) 
+    {
+        $validator = Validator::make(
+            $data,
+            [
+            'title' => 'required|string|max:100',
+            'link' => 'required|string',
+            'date' => 'required|date',
+            'description' => 'nullable|string', 
+        ],
+        [
+            'title.required' => 'il titolo è obbligatorio',
+            'title.string' => 'il titolo deve essere una stringa',
+            'title.max' => 'il titolo deve avere al massimo 100 catteri',
+
+            'link.required' => 'il link è obbligatorio',
+            'link.string' => 'il link deve essere una stringa',
+
+            'date.required' => 'la data è obbligatoria',
+            'date.string' => 'la data deve essere in formato data',
+
+            'description.string' => 'la descrizione deve essere una stringa',
+
+
+        ])->validate();
+
+        return $validator;
     }
 }
