@@ -9,7 +9,10 @@
         <button class="btn btn-outline-success my-0" type="submit">Search</button>
       </form>
       <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-success">Create New Project</a>
+        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-success">
+          Create New Project
+        </a>
+        
       </div>
   </div>
 
@@ -31,6 +34,10 @@
       <td>
         <a href="{{ route('admin.projects.show', $project) }}">
         <i class="bi bi-eye-fill"></i>
+        </a>
+
+        <a href="{{ route('admin.projects.edit', $project) }}">
+          <i class="bi bi-pencil-fill"></i>
         </a>
       </td>
     </tr>

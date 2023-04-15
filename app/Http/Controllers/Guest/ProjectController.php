@@ -19,4 +19,5 @@ class ProjectController extends Controller
     {
        return view('guest.projects.show', compact('project'));
     }
+
 }
