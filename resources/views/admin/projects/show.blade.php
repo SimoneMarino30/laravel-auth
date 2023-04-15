@@ -6,7 +6,7 @@
   {{-- @dump($project) --}}
 <section class="clearfix">
   <h3 class="my-5">{{ $project->title }}</h3>
-  <img src="{{ $project->link }}" alt="" class="float-start mx-3">
+  <img src="{{ asset('storage/' . $project->link) }}" alt="" class="float-start mx-3">
   <p class="py-5">{{ $project->date }}: {{ $project->description }}</p>
   
 </section>

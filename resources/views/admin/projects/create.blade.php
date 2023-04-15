@@ -4,8 +4,12 @@
 
 @section('content')
   <h1 class="my-3">Insert details :</h1>
-<form action="{{ route('admin.projects.store') }}" method="POST" class="row gy-3">
-  @csrf
+<form 
+action="{{ route('admin.projects.store') }}" 
+enctype="multipart/form-data" 
+method="POST" class="row gy-3">
+
+@csrf
 
 <div class="col-6">
   <label for="title" class="form-label">Title</label>
@@ -39,7 +43,7 @@
 
 <div class="col-12">
   <label for="link" class="form-label">Link</label>
-  <input type="text" class="form-control @error('link') is-invalid @enderror" id="link" name="link"  value="{{ old('link') }}">
+  <input type="file" class="form-control @error('link') is-invalid @enderror" id="link" name="link"  value="{{ old('link') }}">
   @error('link')
   <div class="invalid-feedback">
     {{ $message }}

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
@@ -47,6 +49,13 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $this->validation($request->all());
+
+        // dd($data);
+
+        if(Arr::exists($data, 'link')) {
+            $path = Storage::put('uploads/projects', $data['link']);
+            $data['link'] = $path;
+        }
 
         $project = new Project;
 
@@ -109,7 +118,7 @@ class ProjectController extends Controller
             $data,
             [
             'title' => 'required|string|max:100',
-            'link' => 'required|string',
+            'link' => 'nullable|image|mimes:jpg,png,jpeg',
             'date' => 'required|string',
             'description' => 'nullable|string', 
         ],
@@ -118,8 +127,8 @@ class ProjectController extends Controller
             'title.string' => 'il titolo deve essere una stringa',
             'title.max' => 'il titolo deve avere al massimo 100 catteri',
 
-            'link.required' => 'il link è obbligatorio',
-            'link.string' => 'il link deve essere una stringa',
+            'link.image' => 'il link all\' immagine è obbligatorio',
+            'link.mimes' => 'le estensioni accettate sono: jpg, png, jpeg',
 
             'date.required' => 'la data è obbligatoria',
             'date.string' => 'la data deve essere in formato data',
