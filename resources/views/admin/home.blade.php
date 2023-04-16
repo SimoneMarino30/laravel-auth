@@ -1,9 +1,6 @@
 @extends('layouts.app')
+
 @section('content')
-
-<h1>hhhhhhhhhhhhhhhhhhhhhhhhhhh</h1>
-
-
 
 <div class="container">
     <h2 class="fs-4 text-secondary my-4">
@@ -12,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}- uuuuuuuuuu</div>
+                <div class="card-header">{{ __('User Dashboard') }}-Welcome!</div>
 
                 <div class="card-body">
                     @if (session('status'))

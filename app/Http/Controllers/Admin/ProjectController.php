@@ -98,10 +98,10 @@ class ProjectController extends Controller
     {   
         $data = $this->validation($request->all());
 
-        // if(Arr::exists($data, 'link')) {
-        //     $path = Storage::put('uploads/projects', $data['link']);
-        //     $data['link'] = $path;
-        // }
+            if(Arr::exists($data, 'link')) {
+            $path = Storage::put('uploads/projects', $data['link']);
+            $data['link'] = $path;
+        }
         
         $project->update($data);
         return to_route('admin.projects.show', $project);

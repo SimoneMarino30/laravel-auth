@@ -6,10 +6,10 @@
 <div class="row my-4">
       <form class="col-8 d-flex justify-content-start" role="search">
         <input class="form-control me-2" name="term" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-0" type="submit">Search</button>
+        <button class="btn btn-outline-primary my-0" type="submit">Search</button>
       </form>
       <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-success">
+        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-primary">
           Create New Project
         </a>
         
@@ -33,11 +33,11 @@
       <td>{{ $project->date }}</td>
       <td>
         <a href="{{ route('admin.projects.show', $project) }}">
-        <i class="bi bi-eye-fill"></i>
+        <i class="bi bi-eye-fill me-3"></i>
         </a>
 
         <a href="{{ route('admin.projects.edit', $project) }}">
-          <i class="bi bi-pencil-fill"></i>
+          <i class="bi bi-pencil-fill me-3"></i>
         </a>
 
         <button class="bi bi-trash3-fill text-danger btn-trash" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $project->id }}"></button>

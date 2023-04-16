@@ -11,4 +11,9 @@ class Homecontroller extends Controller
         
         return view('admin.home');
     }
+
+    public function guest() {
+        
+        return view('guest.index');
+    }
 }
