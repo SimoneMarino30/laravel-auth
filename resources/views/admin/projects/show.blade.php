@@ -16,10 +16,7 @@
       <h3 class="my-5">{{ $project->description }}</h3>
       <p class="text-muted text-secondary m-0"> {{ $project->date }}</p>
     </figure>
-    
   </div>
-  
-  
 </section>
   <a href="{{ route('admin.projects.index') }}" class="btn btn-outline-primary my-5 mx-3">
   Back to list
